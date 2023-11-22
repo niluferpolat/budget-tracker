@@ -1,6 +1,9 @@
+C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Entity\CustomUserDetails.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Service\UserService.java
+C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Service\CustomUserDetailsService.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\AppApplication.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Repository\UserRepository.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Controller\UserController.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Entity\User.java
 C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\config\SecurityConfig.java
+C:\Users\Nilufer_Pinsoft\Desktop\budget-tracker\src\main\java\com\budgettracker\App\Dto\LoginDto.java
