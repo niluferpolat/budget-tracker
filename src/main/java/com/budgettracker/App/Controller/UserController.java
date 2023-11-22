@@ -1,5 +1,6 @@
 package com.budgettracker.App.Controller;
 
+import com.budgettracker.App.Dto.LoginDto;
 import com.budgettracker.App.Entity.User;
 import com.budgettracker.App.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -19,5 +21,9 @@ public class UserController {
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         userService.registerUser(user);
         return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+    }
+    @PostMapping("/login")
+    public String authenticateUser(@RequestBody LoginDto loginDto) {
+      return userService.loginUser(loginDto);
     }
 }
