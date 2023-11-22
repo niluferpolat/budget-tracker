@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.budgettracker.App.Controller")
+@ComponentScan("com.budgettracker.App")
 public class AppApplication {
 
 	public static void main(String[] args) {
