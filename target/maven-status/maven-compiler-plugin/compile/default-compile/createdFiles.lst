@@ -1,0 +1,8 @@
+com\budgettracker\App\config\CorsConfig$1.class
+com\budgettracker\App\Entity\Expenses.class
+com\budgettracker\App\Controller\ExpenseController.class
+com\budgettracker\App\Dto\ExpenseUpdateDto.class
+com\budgettracker\App\Dto\ExpenseDto.class
+com\budgettracker\App\Service\ExpenseService.class
+com\budgettracker\App\config\CorsConfig.class
+com\budgettracker\App\Repository\ExpenseRepository.class
