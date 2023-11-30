@@ -1,6 +1,7 @@
 package com.budgettracker.App.Service;
 
 import com.budgettracker.App.Dto.LoginDto;
+import com.budgettracker.App.Entity.CustomUserDetails;
 import com.budgettracker.App.Entity.User;
 import com.budgettracker.App.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +36,26 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public String loginUser(LoginDto loginDto) {
+    public CustomUserDetails loginUser(LoginDto loginDto) {
         try {
             Authentication auth = authenticationProvider.authenticate(
                     new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword())
             );
             SecurityContextHolder.getContext().setAuthentication(auth);
-            return "basarili";
+
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+            if (principal instanceof CustomUserDetails) {
+                return (CustomUserDetails) principal;
+            } else {
+                throw new IllegalStateException("Unexpected principal type: " + principal.getClass());
+            }
         } catch (AuthenticationException e) {
-            return "error";
+            throw new RuntimeException("Authentication error: " + e.getMessage(), e);
         }
+    }
+    public Optional<User> getUser(Long id){
+        return userRepository.findById(id);
     }
 
 }

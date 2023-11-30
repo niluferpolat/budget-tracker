@@ -1,15 +1,17 @@
 package com.budgettracker.App.Controller;
 
 import com.budgettracker.App.Dto.LoginDto;
+import com.budgettracker.App.Entity.CustomUserDetails;
 import com.budgettracker.App.Entity.User;
 import com.budgettracker.App.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -23,7 +25,9 @@ public class UserController {
         return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
     }
     @PostMapping("/login")
-    public String authenticateUser(@RequestBody LoginDto loginDto) {
-      return userService.loginUser(loginDto);
+    public User authenticateUser(@RequestBody LoginDto loginDto) {
+      CustomUserDetails customUserDetails=userService.loginUser(loginDto);
+      return customUserDetails.user;
     }
+
 }

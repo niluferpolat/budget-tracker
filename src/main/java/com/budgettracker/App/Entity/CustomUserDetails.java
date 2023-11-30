@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
 
-    private User user;
+    public User user;
 
     public CustomUserDetails(User user) {
         super();
