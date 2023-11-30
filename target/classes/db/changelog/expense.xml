@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet id="20231128-1" author="nilufer">
+        <createTable tableName="expenses">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date" type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="money_amount" type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints  nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet  author="nilufer"  id="20231128-2">
+        <addForeignKeyConstraint  baseColumnNames="user_id"
+                                  baseTableName="expenses"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_user_id"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
+    </changeSet>
+    <changeSet  author="nilufer"  id="20231129-1">
+        <dropTable  cascadeConstraints="true"
+                    schemaName="public"
+                    tableName="expenses"/>
+    </changeSet>
+    <changeSet id="20231129-2" author="nilufer">
+        <createTable tableName="expenses">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date" type="timestamp">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="money_amount" type="double">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints  nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet  author="nilufer"  id="20231129-3">
+        <addForeignKeyConstraint  baseColumnNames="user_id"
+                                  baseTableName="expenses"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_user_id"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
+    </changeSet>
+</databaseChangeLog>
